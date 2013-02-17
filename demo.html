@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<title>mon-autocomplete Demo</title>
+		<style type="text/css">
+		body
+		{
+			color:#666;
+			width: 600px;
+			position: absolute;
+			top: 20px;
+			left: 50%;
+			margin-left: -300px;
+		}
+		</style>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+		<script type="text/javascript" src="jquery.mon-autocomplete.js"></script>
+	</head>
+	<body>
+		<h2>Local simple data</h2>
+		<input id="local_simple_data" type="text" name="query" placeholder="Search" />
+		<h2>Local categorized data</h2>
+		<input id="local_category_data" type="text" name="query" placeholder="Search" />
+		<h2>Local categorized custom data</h2>
+		<input id="local_category_custom_data" type="text" name="query" placeholder="Search" />
+		
+		<script type="text/javascript">
+
+		$(document).ready(function()
+		{
+			$('#local_simple_data').mon_autocomplete(
+			{
+				source: [ 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'height', 'nine', 'ten' ],
+				menu_class: 'local_simple_data'
+			});
+			$('#local_category_data').mon_autocomplete(
+			{
+				source: [
+							{
+								label: 'one',
+								type: 'odd'
+							},
+							{
+								label: 'two',
+								type: 'even'
+							},
+							{
+								label: 'three',
+								type: 'odd'
+							},
+							{
+								label: 'four',
+								type: 'even'
+							},
+							{
+								label: 'five',
+								type: 'odd'
+							},
+							{
+								label: 'six',
+								type: 'even'
+							},
+							{
+								label: 'seven',
+								type: 'odd'
+							},
+							{
+								label: 'height',
+								type: 'even'
+							},
+							{
+								label: 'nine',
+								type: 'odd'
+							},
+							{
+								label: 'ten',
+								type: 'even'
+							}
+						],
+				menu_class: 'local_category_data'
+			});
+			$('#local_category_custom_data').mon_autocomplete(
+			{
+				source: [
+							{
+								label: 'one',
+								type: 'odd',
+								num: 1
+							},
+							{
+								label: 'two',
+								type: 'even',
+								num: 2
+							},
+							{
+								label: 'three',
+								type: 'odd',
+								num: 3
+							},
+							{
+								label: 'four',
+								type: 'even',
+								num: 4
+							},
+							{
+								label: 'five',
+								type: 'odd',
+								num: 5
+							},
+							{
+								label: 'six',
+								type: 'even',
+								num: 6
+							},
+							{
+								label: 'seven',
+								type: 'odd',
+								num: 7
+							},
+							{
+								label: 'height',
+								type: 'even',
+								num: 8
+							},
+							{
+								label: 'nine',
+								type: 'odd',
+								num: 9
+							},
+							{
+								label: 'ten',
+								type: 'even',
+								num: 10
+							}
+						],
+				menu_class: 'local_category_custom_data',
+				format: function(result, label_class)
+				{
+					return $('<div/>').addClass('num').text(result.num)
+								.after($('<span/>').addClass(label_class).text(result.label));
+				}
+			});
+		});
+
+		</script>
+	</body>
+</html>
